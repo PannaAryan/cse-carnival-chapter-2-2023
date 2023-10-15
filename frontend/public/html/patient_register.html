@@ -1,180 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/64d58efce2.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/formstyle.css" />
     <title>Sign in & Sign up Form</title>
-  </head>
-  <body>
+</head>
+<body>
     <div class="container">
-      <div class="forms-container">
-        <div class="signin-signup">
-          <form action="#" class="sign-in-form" id="login-form" onsubmit="login(event)">
-            <h2 class="title">Sign in</h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" id="login-username" placeholder="Username" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" id="login-password" placeholder="Password" />
-            </div>
-            <input type="submit" value="Login" class="btn solid" />
-          </form>
-          <form action="#" class="sign-up-form" id="signup-form" onsubmit="signup(event)">
-            <h2 class="title">Sign up</h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" id="signup-firstname" placeholder="FirstName" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" id="signup-lastname" placeholder="LastName" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" id="signup-username" placeholder="Username" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-envelope"></i>
-              <input type="email" id="signup-email" placeholder="Email" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-phone"></i>
-              <input type="text" id="signup-phonenumber" placeholder="PhoneNumber" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input type="number" id="signup-nid" placeholder="NID Number" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" id="signup-password" placeholder="Password" />
-            </div>
-            <input type="submit" class="btn" value="Sign up" />
-          </form>
-        </div>
-      </div>
+        <div class="forms-container">
+            <div class="signin-signup">
+                <!-- Sign In Form -->
+                <form class="sign-in-form" id="login-form">
+                    <h2 class="title">Sign in</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" />
+                    </div>
+                    <input type="button" value="Login" class="btn solid" onclick="login()" />
+                </form>
 
-      <div class="panels-container">
-        <div class="panel left-panel">
-          <div class="content">
-            <h3>New here ?</h3>
-            <p>
-              Join our community and be of help to people who need it the most!
-            </p>
-            <button class="btn transparent" id="sign-up-btn">
-              Sign up
-            </button>
-          </div>
-          <img src="../res/img/log.svg" class="image" alt="" />
+                <!-- Sign Up Form -->
+                <form class="sign-up-form" id="signup-form">
+                    <h2 class="title">Sign up</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="FirstName" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="LastName" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-phone"></i>
+                        <input type="text" placeholder="PhoneNumber" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="number" placeholder="NID Number" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" />
+                    </div>
+                    <input type="button" class="btn" value="Sign up" onclick="signup()" />
+                </form>
+            </div>
         </div>
-        <div class="panel right-panel">
-          <div class="content">
-            <h3>One of us ?</h3>
-            <p>
-              Continue your journey with us!
-            </p>
-            <button class="btn transparent" id="sign-in-btn">
-              Sign in
-            </button>
-          </div>
-          <img src="../res/img/register.svg" class="image" alt="" />
+
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>New here ?</h3>
+                    <p>
+                        Join our community and be of help to people who need it the most!
+                    </p>
+                    <button class="btn transparent" id="sign-up-btn">
+                        Sign up
+                    </button>
+                </div>
+                <img src="../res/img/log.svg" class="image" alt="" />
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>One of us ?</h3>
+                    <p>
+                        Continue your journey with us!
+                    </p>
+                    <button class="btn transparent" id="sign-in-btn">
+                        Sign in
+                    </button>
+                </div>
+                <img src="../res/img/register.svg" class="image" alt="" />
+            </div>
         </div>
-      </div>
     </div>
 
-    <script src="../app.js"></script>
-    <script src="/frontend/public/script.js"></script>
-
     <script>
-      async function signup(event) {
-        event.preventDefault();
-        const signupForm = document.getElementById('signup-form');
-        
+        async function login() {
+            const username = document.querySelector('.sign-in-form input[type=text]').value;
+            const password = document.querySelector('.sign-in-form input[type=password]').value;
 
-        // Collect data from the form fields
-        const firstName = document.getElementById('signup-firstname').value;
-        const lastName = document.getElementById('signup-lastname').value;
-        const username = document.getElementById('signup-username').value;
-        const email = document.getElementById('signup-email').value;
-        const phoneNumber = document.getElementById('signup-phonenumber').value;
-        const nid = document.getElementById('signup-nid').value;
-        const password = document.getElementById('signup-password').value;
+            try {
+                const response = await fetch('http://localhost:8000/api/v1/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
 
-        // Create a data object to send to the backend
-        const data = {
-          firstName,
-          lastName,
-          username,
-          email,
-          phoneNumber,
-          nid,
-          password
-        };
+                const data = await response.json();
 
-        // Send a POST request to the backend API
-        try {
-          const response = await fetch('http://localhost:8000/api/v1/auth/signup', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-          });
-
-          // Handle the response, e.g., display a success message or handle errors
-          const responseData = await response.json();
-          console.log(responseData);
-
-          // Reset the form or redirect as needed
-          signupForm.reset();
-        } catch (error) {
-          console.error(error);
-          // Handle errors, e.g., display an error message
+                if (response.ok) {
+                    alert('Login successful!');
+                    // Handle successful login, e.g., redirecting to another page.
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Error during fetch operation', error);
+                alert('An error occurred. Please try again.');
+            }
         }
-      }
-      
-      async function login(event) {
-        event.preventDefault();
-        const loginForm = document.getElementById('login-form');
-        
-        // Collect data from the form fields
-        const username = document.getElementById('login-username').value;
-        const password = document.getElementById('login-password').value;
-        
-        // Create a data object to send to the backend
-        const data = {
-          username,
-          password
-        };
-        
-        // Send a POST request to the backend API for login
-        try {
-          const response = await fetch('http://localhost:8000/api/v1/auth/login', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-          });
-          
-          // Handle the response, e.g., display a success message or handle errors
-          const responseData = await response.json();
-          console.log(responseData);
-          
-          // Reset the form or redirect as needed
-          loginForm.reset();
-        } catch (error) {
-          console.error(error);
-          // Handle errors, e.g., display an error message
+
+        async function signup() {
+            const firstName = document.querySelector('.sign-up-form input[placeholder=FirstName]').value;
+            const lastName = document.querySelector('.sign-up-form input[placeholder=LastName]').value;
+            const username = document.querySelector('.sign-up-form input[placeholder=Username]').value;
+            const email = document.querySelector('.sign-up-form input[type=email]').value;
+            const phoneNumber = document.querySelector('.sign-up-form input[placeholder=PhoneNumber]').value;
+            const nidNumber = document.querySelector('.sign-up-form input[placeholder="NID Number"]').value;
+            const password = document.querySelector('.sign-up-form input[type=password]').value;
+
+            try {
+                const response = await fetch('http://localhost:8000/api/v1/auth/signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        firstName, lastName, username, email, phoneNumber, nidNumber, password
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert('Signup successful!');
+                    // Handle successful signup, e.g., redirecting to the login page.
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Error during fetch operation', error);
+                alert('An error occurred. Please try again.');
+            }
         }
-      }
     </script>
-  </body>
+</body>
 </html>

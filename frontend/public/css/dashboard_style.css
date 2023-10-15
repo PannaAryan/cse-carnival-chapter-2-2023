@@ -93,3 +93,18 @@ h3::before {
 		margin-right: 1.5rem;
 	}
 }
+
+form{
+    align-items: flex-start !important;
+    width: 100%;
+    margin-top: 15px;
+}
+
+input{
+    border: var(--clr-white) dashed;
+    width: 100%;
+    outline: none;
+    padding: 10px 5px;
+    border-radius: 10px;
+    flex: 1;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Forum</title>
+    <style>
+        body {
+            background-color: #458ff6;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #post-container .post, #post-form {
+            background-color: #fff;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #post-container .post h2, #post-container .post .tag {
+            color: #0c0e11;
+        }
+
+        #post-container .comment {
+            margin-top: 20px;
+            padding: 20px;
+            border-top: 1px solid #123451;
+        }
+
+        #post-form h1, #post-form label {
+            color: #458ff6;
+        }
+
+        #post-form input, #post-form textarea {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        #post-form button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        #post-form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="post-container">
+        <!-- Dummy Post -->
+        <div class="post">
+            <h2 class="text-white">John Doe (User)</h2>
+            <p>Having frequent headaches. Any advice?</p>
+            <div class="tag">Headache</div>
+            <!-- Expert Comment -->
+            <div class="comment">
+                <h2 class="text-white">Dr. Smith (Neurologist)</h2>
+                <p>It's important to consult with a healthcare professional for proper diagnosis...</p>
+            </div>
+            <div class="comment">
+                <h2 class="text-white">Dr. Ian (Medicine SPecialist)</h2>
+                <p>Sleep proper?...</p>
+            </div>
+        </div>
+    </div>
+    <!-- Post Form -->
+    <!-- Post Form -->
+<div id="post-form">
+    <h1>Post a Health Problem</h1>
+    <label for="name">Name (leave blank for anonymous):</label>
+    <input type="text" id="name">
+    <label for="problem">Describe the problem:</label>
+    <textarea id="problem"></textarea>
+    <label for="tag">Tag:</label>
+    <!-- Dropdown menu for health issue tags -->
+    <select id="tag">
+        <option value="headache">Headache</option>
+        <option value="fever">Fever</option>
+        <option value="cough">Cough</option>
+        <option value="pain">Pain</option>
+        <option value="allergy">Allergy</option>
+        <!-- Add more options as needed -->
+    </select>
+    <button onclick="submitPost()">Post</button>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
