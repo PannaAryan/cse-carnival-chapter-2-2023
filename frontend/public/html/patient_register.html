@@ -14,51 +14,49 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          <form action="#" class="sign-in-form" id="login-form">
+          <form action="#" class="sign-in-form" id="login-form" onsubmit="login(event)">
             <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" id="login-username" placeholder="Username" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" id="login-password" placeholder="Password" />
             </div>
             <input type="submit" value="Login" class="btn solid" />
-      
           </form>
-          <form action="#" class="sign-up-form" id="signup-form">
+          <form action="#" class="sign-up-form" id="signup-form" onsubmit="signup(event)">
             <h2 class="title">Sign up</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="FirstName" />
+              <input type="text" id="signup-firstname" placeholder="FirstName" />
             </div>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="LastName" />
+              <input type="text" id="signup-lastname" placeholder="LastName" />
             </div>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" id="signup-username" placeholder="Username" />
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" />
+              <input type="email" id="signup-email" placeholder="Email" />
             </div>
             <div class="input-field">
               <i class="fas fa-phone"></i>
-              <input type="phoneNumber" placeholder="phoneNumber" />
+              <input type="text" id="signup-phonenumber" placeholder="PhoneNumber" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="number" placeholder="NID Number" />
-            </div> 
+              <input type="number" id="signup-nid" placeholder="NID Number" />
+            </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" id="signup-password" placeholder="Password" />
             </div>
             <input type="submit" class="btn" value="Sign up" />
-           
           </form>
         </div>
       </div>
@@ -93,5 +91,90 @@
 
     <script src="../app.js"></script>
     <script src="/frontend/public/script.js"></script>
+
+    <script>
+      async function signup(event) {
+        event.preventDefault();
+        const signupForm = document.getElementById('signup-form');
+        
+
+        // Collect data from the form fields
+        const firstName = document.getElementById('signup-firstname').value;
+        const lastName = document.getElementById('signup-lastname').value;
+        const username = document.getElementById('signup-username').value;
+        const email = document.getElementById('signup-email').value;
+        const phoneNumber = document.getElementById('signup-phonenumber').value;
+        const nid = document.getElementById('signup-nid').value;
+        const password = document.getElementById('signup-password').value;
+
+        // Create a data object to send to the backend
+        const data = {
+          firstName,
+          lastName,
+          username,
+          email,
+          phoneNumber,
+          nid,
+          password
+        };
+
+        // Send a POST request to the backend API
+        try {
+          const response = await fetch('http://localhost:8000/api/v1/auth/signup', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+
+          // Handle the response, e.g., display a success message or handle errors
+          const responseData = await response.json();
+          console.log(responseData);
+
+          // Reset the form or redirect as needed
+          signupForm.reset();
+        } catch (error) {
+          console.error(error);
+          // Handle errors, e.g., display an error message
+        }
+      }
+      
+      async function login(event) {
+        event.preventDefault();
+        const loginForm = document.getElementById('login-form');
+        
+        // Collect data from the form fields
+        const username = document.getElementById('login-username').value;
+        const password = document.getElementById('login-password').value;
+        
+        // Create a data object to send to the backend
+        const data = {
+          username,
+          password
+        };
+        
+        // Send a POST request to the backend API for login
+        try {
+          const response = await fetch('http://localhost:8000/api/v1/auth/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+          
+          // Handle the response, e.g., display a success message or handle errors
+          const responseData = await response.json();
+          console.log(responseData);
+          
+          // Reset the form or redirect as needed
+          loginForm.reset();
+        } catch (error) {
+          console.error(error);
+          // Handle errors, e.g., display an error message
+        }
+      }
+    </script>
   </body>
 </html>
