@@ -27,6 +27,7 @@ app.use((req, res) => {
     message: "Not Found",
     errorMessages: [{ path: req.originalUrl, message: "API Not Found" }],
   });
-});
+})
+
 
 module.exports = app;

@@ -2,6 +2,8 @@ const config = require("./config");
 const app = require("./app");
 const { port } = require("./config");
 const pool = require("./pool");
+const createTable = require("./utils/createTable");
+
 
 async function main() {
   try {
@@ -10,6 +12,7 @@ async function main() {
         console.log(`error occurred while connecting ${error}`);
       } else {
         console.log("connection created with Mysql successfully");
+        // createTable();
       }
     });
 

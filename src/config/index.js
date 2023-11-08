@@ -12,7 +12,7 @@ module.exports = {
     host: process.env.HOST,
     database_port: process.env.DATABASE_PORT,
     database: process.env.DATABASE,
-    user: process.env.USER,
+    user: process.env.DATABASE_USER,
     password: process.env.PASSWORD,
   },
   jwt: {

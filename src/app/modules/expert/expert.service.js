@@ -4,14 +4,14 @@ const ApiError = require("../../../errors/ApiError");
 var jwt = require("jsonwebtoken");
 
 const createExpertInDB = async (payload) => {
-  const {  VerificationInfo , Name , Specialization , ClinicAddress , PhoneNumber, Email ,  Password } = payload;
+  const { Username, BMDC_reg, FullName, Specialization, Email, PhoneNumber, Password} = payload;
 
   const query =
-    "INSERT INTO Doctors (VerificationInfo , Name , Specialization , ClinicAddress , PhoneNumber, Email ,  Password) VALUES (?, ?, ?, ?, ?, ?, ?)";
-  const values = [VerificationInfo , Name , Specialization , ClinicAddress , PhoneNumber, Email ,  Password];
+    "INSERT INTO Doctors (Username, BMDC_reg, FullName, Specialization, Email, PhoneNumber, Password) VALUES (?, ?, ?, ?, ?, ?, ?)";
+  const values = [Username, BMDC_reg, FullName, Specialization, Email, PhoneNumber, Password];
 
   const selectQuery =
-  "SELECT VerificationInfo , Name , Specialization , ClinicAddress , PhoneNumber, Email , Password FROM Doctors";
+  "SELECT Username, BMDC_reg, FullName, Specialization, Email, PhoneNumber, Password FROM Doctors";
 
   await pool.promise().query(query, values);
 
@@ -29,13 +29,13 @@ const loginExpert = async (payload) => {
 
   if (expert) {
     if (expert.Password === Password) {
-      const { VerificationInfo, Name, Email } = expert;
+      const { Username, BMDC_reg, Email } = expert;
 
       const accessToken = jwt.sign(
         {
-            VerificationInfo, 
-            Name,
-            Email,
+          Username, 
+          BMDC_reg,
+          Email,
         },
         config.jwt.secret,
         { expiresIn: config.jwt.expires_in }
